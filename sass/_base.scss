@@ -1,0 +1,245 @@
+///Colors
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(0, 0, 0);
+$color-cyan: hsl(179, 62%, 43%);
+$color-cyan-light: hsla(179, 51%, 48%, 0.849);
+$color-bright-yellow: hsl(71, 73%, 54%);
+$color-light-gray: hsl(204, 43%, 93%);
+$color-grayish-blue: hsl(218, 22%, 67%);
+
+$color-gray-transparent: hsla(219, 70%, 96%, 0.548);
+$color-gray-transparent-2: hsla(219, 70%, 96%, 0.733);
+///Fonts
+
+$ft-bold: 700;
+$ft-normal: 400;
+
+///BREAKPOINTS
+
+$bp-small: 31.25em;
+$bp-sm-600: 37.5em;
+$bp-med-800: 50em;
+$bp-med-1200: 75em;
+
+///RESETS
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+///BEGIN
+///
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; ////defines
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.3;
+    font-family: "Karla", sans-serif;
+    background: linear-gradient(180deg, $color-light-gray, $color-grayish-blue);
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100%;
+}
+
+///ALL
+///
+.container {
+    display: grid;
+    place-content: center;
+
+    overflow: hidden;
+    margin: 0 3rem;
+    min-height: 100%;
+
+    &::after,
+    &::before {
+        content: "";
+        display: block;
+        height: 2rem; /* set the desired margin at the bottom */
+    }
+
+    @media only screen and (min-width: $bp-small) {
+        margin: 0 10rem;
+    }
+    @media only screen and (min-width: $bp-sm-600) {
+        margin: 0 17rem;
+    }
+    @media only screen and (min-width: $bp-med-800) {
+        margin: 0 8rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media only screen and (min-width: $bp-med-1200) {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 40rem;
+        justify-self: center;
+    }
+}
+
+///FIRST BLOCK
+///
+
+.join {
+    background-color: $color-white;
+    display: grid;
+    grid-gap: 1.8rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 3rem 2rem;
+    &__heading {
+        color: $color-cyan;
+        font-size: 1.9rem;
+        @media only screen and (min-width: $bp-med-800) {
+            font-size: 2.3rem;
+        }
+    }
+    &__paragraph-1 {
+        color: $color-bright-yellow;
+        font-size: 1.5rem;
+        font-weight: $ft-bold;
+        @media only screen and (min-width: $bp-med-800) {
+            font-size: 1.8rem;
+        }
+    }
+    &__paragraph-2 {
+        font-size: 1.4rem;
+        line-height: 1.8;
+        width: 80%;
+        color: $color-grayish-blue;
+    }
+    @media only screen and (min-width: $bp-med-800) {
+        grid-column: 1/-1;
+        padding: 4rem;
+    }
+}
+
+///SECOND BLOCK
+///
+
+.sub {
+    padding: 2.5rem 2rem;
+    background-color: $color-cyan;
+    color: $color-white;
+    display: grid;
+    grid-gap: 1.9rem;
+    &__heading {
+        font-size: 1.85rem;
+    }
+    &__price {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+    }
+    &__paragraph {
+        font-size: 1.5rem;
+        padding: 0.5rem 0;
+        color: $color-light-gray;
+    }
+    &__link {
+        background-color: $color-bright-yellow;
+        font-size: 1.5rem;
+        font-weight: $ft-bold;
+        text-align: center;
+        text-decoration: none;
+        color: $color-white;
+        padding: 1.3rem 0;
+        box-shadow: 0.2rem 0.3rem 1rem rgba($color-black, 0.3);
+        border-radius: 0.5rem;
+        transition: all 0.2s;
+        &:hover {
+            filter: saturate(200%);
+            transform: translateY(-2px);
+            box-shadow: 0.2rem 0.3rem 1rem rgba($color-black, 0.5);
+        }
+        &:active {
+            transform: translateY(0px);
+        }
+    }
+    @media only screen and (min-width: $bp-med-800) {
+        padding: 4rem;
+        border-radius: 0 0 0 0.5rem;
+    }
+}
+
+.number {
+    font-size: 3rem;
+    font-weight: $ft-bold;
+}
+.period {
+    font-size: 1.5rem;
+    align-self: center;
+    padding: 0 2rem;
+    justify-self: start;
+    color: $color-gray-transparent;
+}
+
+///THIRD BLOCK
+///
+.about {
+    padding: 2.5rem 2rem;
+    background-color: $color-cyan-light;
+    display: grid;
+    grid-row-gap: 1.3rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    &__heading {
+        color: $color-white;
+        font-size: 1.7rem;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    a {
+        text-decoration: none;
+        list-style-type: none;
+        color: $color-gray-transparent-2;
+        line-height: 1.4;
+        font-size: 1.4rem;
+
+        padding: 0;
+    }
+    @media only screen and (min-width: $bp-med-800) {
+        padding: 4rem;
+        border-radius: 0 0 0.5rem 0;
+    }
+}
